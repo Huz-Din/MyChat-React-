@@ -52,3 +52,14 @@ code {
   padding: 20px;
   margin-bottom: 50px;
 }
+
+.clock{
+  padding: 10px 10px;
+  font-size: 38;
+  color: #ffb63e;
+  border: 5px solid #328be0;
+}
+
+.time{
+  color: #ff7baf;
+}

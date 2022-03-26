@@ -3,6 +3,7 @@ import ReactDOM from "react-dom";
 import "./index.css";
 import styles from "./index.module.css";
 //стили подключил через module.
+import Clock from "./clock";
 
 const ParentComponent = () => {
   // const age = 23;
@@ -94,6 +95,7 @@ ReactDOM.render(
   <React.StrictMode>
     <div className={styles.container}>
       <ParentComponent />
+      <Clock />
     </div>
   </React.StrictMode>,
   document.getElementById("root")
