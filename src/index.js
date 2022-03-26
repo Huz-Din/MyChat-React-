@@ -2,6 +2,7 @@ import React from "react";
 import ReactDOM from "react-dom";
 import "./index.css";
 import styles from "./index.module.css";
+//стили подключил через module.
 
 const ParentComponent = () => {
   // const age = 23;
