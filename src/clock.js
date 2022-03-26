@@ -1,17 +1,18 @@
 import React from "react";
 import styles from "./index.module.css";
 
+//конструктор компонента Clock
 class Clock extends React.Component {
   constructor(props) {
     super(props);
     this.state = { date: new Date() };
   }
 
-  //начальный цикл жизни компонента
+  //начальный метод цикл жизни компонента
   componentDidMount() {
     this.timerID = setInterval(() => this.tick(), 1000);
   }
-  //окончание цикла жизни компонента
+  //окончание метод цикла жизни компонента - сброс
   componentWillUnmount() {
     clearInterval(this.timerID);
   }
