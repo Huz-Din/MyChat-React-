@@ -8,15 +8,15 @@ class Clock extends React.Component {
     this.state = { date: new Date() };
   }
 
-  //начальный метод цикл жизни компонента
+  //начальный метод цикл жизни компонента -Компонент вмонтирован
   componentDidMount() {
     this.timerID = setInterval(() => this.tick(), 1000);
   }
-  //окончание метод цикла жизни компонента - сброс
+  //окончание цикла жизни компонента - сброс (Компонент размонтирован)
   componentWillUnmount() {
     clearInterval(this.timerID);
   }
-  //метод (состояние)
+  // метод состояния
   tick() {
     this.setState({ date: new Date() });
   }
