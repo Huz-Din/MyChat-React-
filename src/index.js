@@ -4,6 +4,7 @@ import "./index.css";
 import styles from "./index.module.css";
 //стили подключил через module.
 import Clock from "./clock";
+import Counter from "./counter";
 
 const ParentComponent = () => {
   // const age = 23;
@@ -19,7 +20,7 @@ const ParentComponent = () => {
 
   return (
     <div>
-      <h1>Parent Hello React</h1>
+      {/* <h1>Parent Hello React</h1> */}
       {/* <ClassComponent age={age} films={films} handleClick={handleClick} />
       <BannerComponent age={age} films={films} handleClick={handleClick} />
       <FunctionsComponent age={age} films={films} handleClick={handleClick} /> */}
@@ -96,6 +97,7 @@ ReactDOM.render(
     <div className={styles.container}>
       <ParentComponent />
       <Clock />
+      <Counter />
     </div>
   </React.StrictMode>,
   document.getElementById("root")
