@@ -5,6 +5,7 @@ import styles from "./index.module.css";
 //стили подключил через module.
 import Clock from "./clock";
 import Counter from "./counter";
+import Toggle from "./toggle";
 
 const ParentComponent = () => {
   // const age = 23;
@@ -98,6 +99,7 @@ ReactDOM.render(
       <ParentComponent />
       <Clock />
       <Counter />
+      <Toggle />
     </div>
   </React.StrictMode>,
   document.getElementById("root")
