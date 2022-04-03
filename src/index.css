@@ -21,18 +21,6 @@ code {
   align-items: center;
 }
 
-/* .banner {
-  width: 1000px;
-  height: 450px;
-  border: 3px solid #000;
-  background-color: green;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  padding: 20px;
-} */
-
 .firstComponent__h1 {
   font-size: 36px;
   color: red;
