@@ -98,8 +98,8 @@ code {
 }
 
 .button__sendmessage {
-  color: #fff;
+  /* color: #fff;
   background-color: #c688eb;
-  border-radius: 3px;
+  border-radius: 3px; */
   margin: 5px;
 }

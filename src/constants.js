@@ -1,6 +1,9 @@
+import AccountCircleIcon from "@mui/icons-material/AccountCircle";
+import AdbIcon from "@mui/icons-material/Adb";
+
 const AUTHOR = {
-  me: "Lone_wolf",
-  bot: "Syntetic_friend",
+  me: <AccountCircleIcon />,
+  bot: <AdbIcon />,
 };
 
 export default AUTHOR;
