@@ -5,6 +5,7 @@ import ListItemButton from "@mui/material/ListItemButton";
 import ListItemIcon from "@mui/material/ListItemIcon";
 import ListItemText from "@mui/material/ListItemText";
 import Divider from "@mui/material/Divider";
+import PropTypes from "prop-types";
 
 const Messages = (props) => {
   const { messages } = props;
@@ -27,3 +28,12 @@ const Messages = (props) => {
   );
 };
 export default Messages;
+
+Messages.propTypes = {
+  message: PropTypes.arrayOf(
+    PropTypes.shape({
+      text: PropTypes.string,
+      author: PropTypes.string,
+    })
+  ),
+};

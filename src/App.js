@@ -12,6 +12,7 @@ import Box from "@mui/material/Box";
 // import ListItemText from "@mui/material/ListItemText";
 // import Divider from "@mui/material/Divider";
 import Messages from "./Messages";
+import ChatList from "./ChatList";
 
 const App = () => {
   const [messagelist, setMessagelist] = useState([]);
@@ -67,6 +68,8 @@ const App = () => {
 
   return (
     <Box className={styles.wrapper__message}>
+      <h3>Dialogs: </h3>
+      <ChatList />
       <h3>Chat: </h3>
       <Messages messages={messagelist} />
       {/* {messagelist.map((element, index) => (
@@ -85,6 +88,7 @@ const App = () => {
         // ref={inputRef}
         style={{ marginRight: "20px" }}
         placeholder={"Enter your massege"}
+        autoFocus
         type="text"
         value={value}
         onChange={updateMessage}

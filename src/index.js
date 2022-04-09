@@ -10,6 +10,7 @@ import App from "./App";
 import { orange } from "@mui/material/colors";
 import { createTheme, ThemeProvider } from "@mui/material";
 
+//тема проекта
 const theme = createTheme({
   palette: {
     text: "disabled",
