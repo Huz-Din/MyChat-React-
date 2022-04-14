@@ -64,7 +64,6 @@ const ControlPanel = ({ addMessage }) => {
   return (
     <div>
       <Box className={styles.wrapper__message}>
-        {/* <ChatList  /> */}
         <TextField
           inputRef={inputRef}
           style={{ marginRight: "20px" }}
