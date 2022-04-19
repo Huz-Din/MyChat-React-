@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import {
   Avatar,
   IconButton,
@@ -7,12 +7,40 @@ import {
   ListItemText,
   Typography,
   List,
+  Fab,
+  Dialog,
+  DialogTitle,
+  TextField,
 } from "@mui/material";
 import DeleteIcon from "@mui/icons-material/Delete";
+import NavigationIcon from "@mui/icons-material/Navigation";
+import addChat from "./store/chats/actions";
 import { Link } from "react-router-dom";
+import { useSelector, useDispatch } from "react-redux";
 
-const ChatList = ({ chats }) => {
-  // console.log(Object.keys(chats));
+const ChatList = () => {
+  const chats = useSelector((state) => state.chats.chatList);
+  const [visible, setVisible] = useState(false);
+  const [chatName, setChatName] = useState("");
+  const dispatch = useDispatch();
+
+  const handleChatName = (e) => {
+    setChatName(e.target.value);
+  };
+
+  const handleAdd = () => {
+    setVisible(true);
+  };
+
+  const handleClose = () => {
+    setVisible(false);
+  };
+
+  const handleSave = () => {
+    dispatch(addChat(chatName));
+    setChatName("");
+    handleClose();
+  };
 
   return (
     <div>
@@ -20,24 +48,52 @@ const ChatList = ({ chats }) => {
         Chat List
       </Typography>
       <List>
-        {Object.keys(chats).map((chat, index) => (
-          <Link to={`/chats/${chat}`} key={index}>
-            <ListItem
-              key={index}
-              secondaryAction={
-                <IconButton edge="end" aria-label="delete">
-                  <DeleteIcon />
-                </IconButton>
-              }
-            >
-              <ListItemAvatar>
-                <Avatar>{}</Avatar>
-              </ListItemAvatar>
-              <ListItemText primary={chats[chat].name} />
-            </ListItem>
-          </Link>
-        ))}
+        {chats?.length ? (
+          chats.map((chat) => (
+            <Link to={`/chats/${chat.id}`} key={chat.id}>
+              <ListItem
+                secondaryAction={
+                  <IconButton edge="end" aria-label="delete">
+                    <DeleteIcon />
+                  </IconButton>
+                }
+              >
+                <ListItemAvatar>
+                  <Avatar>{}</Avatar>
+                </ListItemAvatar>
+                <ListItemText primary={chat.name} />
+              </ListItem>
+            </Link>
+          ))
+        ) : (
+          <div>No chats</div>
+        )}
       </List>
+      <Fab
+        onClick={handleAdd}
+        variant="extended"
+        color="primary"
+        aria-label="add"
+      >
+        <NavigationIcon sx={{ mr: 0.5 }} />
+        Add chat
+      </Fab>
+      <Dialog open={visible} onClose={handleClose}>
+        <DialogTitle>Enter a name</DialogTitle>
+        <TextField
+          placeholder="chat name"
+          value={chatName}
+          onChange={handleChatName}
+        />
+        <Fab
+          onClick={handleSave}
+          variant="extended"
+          color="primary"
+          aria-label="add"
+        >
+          Save it
+        </Fab>
+      </Dialog>
     </div>
   );
 };

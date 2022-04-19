@@ -90,7 +90,7 @@ code {
 }
 
 .counter__h1 {
-  color: #ffb63e;;
+  color: #ffb63e;
 }
 
 .wrapper__message {
@@ -110,12 +110,18 @@ code {
 }
 
 .nav__menu_li {
-  margin: 0 20px;
+  margin: 0 30px;
   list-style: none;
-  border: 1px solid #328be0;
+  border: 2px solid #328be0;
+  padding: 5px 10px;
   border-radius: 3px;
 }
 
 a {
-  color: #ff7baf;
+  color: #ffb63e;
+}
+
+.wrapper__chatlist {
+  border: 3px solid #c688eb;
+  border-radius: 5px;
 }

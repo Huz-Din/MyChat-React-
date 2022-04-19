@@ -3,12 +3,12 @@ import ChatList from "../ChatList";
 import ControlPanel from "../ControlPanel";
 import MessageList from "../MessageList";
 
-const Chats = ({ chats, addMessage }) => {
+const Chats = () => {
   return (
     <div className="container__chats">
-      <ChatList chats={chats} />
-      <MessageList chats={chats} />
-      <ControlPanel addMessage={addMessage} />
+      <ChatList />
+      <MessageList />
+      <ControlPanel />
     </div>
   );
 };
