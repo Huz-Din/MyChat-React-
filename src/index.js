@@ -2,7 +2,6 @@ import React from "react";
 import ReactDOM from "react-dom";
 import "./index.css";
 import styles from "./index.module.css";
-//стили подключил через module.
 import App from "./App";
 import { orange } from "@mui/material/colors";
 import { createTheme, ThemeProvider } from "@mui/material";

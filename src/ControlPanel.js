@@ -32,17 +32,6 @@ const ControlPanel = () => {
     }
   };
 
-  // const sendMessagePress = (e) => {
-  //   if (e.key === "Enter") {
-  //     if (value !== "") {
-  //       const newMessage = { text: value, author };
-  //       addMessage(chatId, newMessage);
-  //       setValue("");
-  //       inputRef.current?.focus();
-  //     }
-  //   }
-  // };
-
   useEffect(() => {
     inputRef.current?.focus();
   }, []);
@@ -75,7 +64,6 @@ const ControlPanel = () => {
           type="text"
           value={value}
           onChange={updateMessage}
-          // onKeyPress={sendMessagePress}
         />
         <Fab onClick={sendMessage} color="info" aria-label="add">
           <LocalAirportIcon />
