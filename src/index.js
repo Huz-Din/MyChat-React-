@@ -3,12 +3,11 @@ import ReactDOM from "react-dom";
 import "./index.css";
 import styles from "./index.module.css";
 //стили подключил через module.
-import Clock from "./clock";
-import Counter from "./counter";
-import Toggle from "./toggle";
 import App from "./App";
 import { orange } from "@mui/material/colors";
 import { createTheme, ThemeProvider } from "@mui/material";
+import { Provider } from "react-redux";
+import store from "./store/index";
 
 //тема проекта
 const theme = createTheme({
@@ -22,14 +21,13 @@ const theme = createTheme({
 
 ReactDOM.render(
   <React.StrictMode>
-    <ThemeProvider theme={theme}>
-      <div className={styles.container}>
-        <App />
-        <Clock />
-        <Counter />
-        <Toggle />
-      </div>
-    </ThemeProvider>
+    <Provider store={store}>
+      <ThemeProvider theme={theme}>
+        <div className={styles.container}>
+          <App />
+        </div>
+      </ThemeProvider>
+    </Provider>
   </React.StrictMode>,
   document.getElementById("root")
 );
