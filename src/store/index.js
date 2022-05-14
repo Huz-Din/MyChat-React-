@@ -8,6 +8,7 @@ import storage from "redux-persist/lib/storage";
 import profileReducer from "./profile/reducer";
 import chatsReducer from "./chats/reducer";
 import messagesReducer from "./messages/reducer";
+import gistsReducer from "./gists/reducer";
 
 //saga
 // const sagaMiddleware = createSagaMiddleware();
@@ -24,6 +25,7 @@ const reducers = combineReducers({
   profile: profileReducer,
   chats: chatsReducer,
   messages: messagesReducer,
+  gists: gistsReducer,
 });
 
 //saga

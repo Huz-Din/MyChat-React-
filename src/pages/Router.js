@@ -5,6 +5,7 @@ import Profile from "./Profile";
 import Chats from "./Chats";
 import styles from "../index.module.css";
 import AUTHOR from "../constants";
+import Gists from "./Gists";
 
 const initialChats = {
   id1: {
@@ -46,6 +47,9 @@ const Router = () => {
           <li className={styles.nav__menu_li}>
             <Link to="/chats">Chats</Link>
           </li>
+          <li className={styles.nav__menu_li}>
+            <Link to="/gists">Gists</Link>
+          </li>
         </ul>
       </div>
 
@@ -57,6 +61,7 @@ const Router = () => {
           element={<Chats chats={chats} addMessage={addMessage} />}
         />
         <Route path="*" element={<Chats chats={chats} />} />
+        <Route path="/gists" element={<Gists />} />
       </Routes>
     </BrowserRouter>
   );
