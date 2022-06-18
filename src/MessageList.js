@@ -1,6 +1,7 @@
 import React from "react";
+import { useEffect } from "react";
 import { useParams } from "react-router-dom";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import styles from "./index.module.css";
 import AUTHOR from "./constants";
 import AccountBoxIcon from "@mui/icons-material/AccountBox";
@@ -14,13 +15,15 @@ import {
   Avatar,
   Typography,
 } from "@mui/material";
+import { getMessagesByChatIdWithFB } from "./midlewares/midllewares";
 
 const MessageList = () => {
   const allMessages = useSelector((state) => state.messages.messageList);
   const { name } = useSelector((state) => state.profile);
   let { chatId } = useParams();
+  const dispatch = useDispatch();
 
-  if (!allMessages[chatId]) return null;
+  // if (!allMessages[chatId]) return null;
 
   const messages = allMessages[chatId];
 
@@ -28,9 +31,13 @@ const MessageList = () => {
     return author === AUTHOR.bot;
   };
 
+  useEffect(() => {
+    dispatch(getMessagesByChatIdWithFB(chatId));
+  }, [chatId]);
+
   return (
     <div className={styles.wrapper__chatlist}>
-      {messages.map((element, index) => (
+      {messages?.map((element, index) => (
         <div key={index}>
           <List
             sx={{ width: "100%", maxWidth: 360, bgcolor: "background.paper" }}
