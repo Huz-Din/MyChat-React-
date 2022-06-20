@@ -51,6 +51,7 @@ const ChatList = () => {
     dispatch(deleteChatWithFB(id));
   };
 
+  //ошибка зависимостей
   useEffect(() => {
     dispatch(initTrackerWithFB());
   }, [chatId]);

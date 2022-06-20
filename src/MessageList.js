@@ -31,6 +31,7 @@ const MessageList = () => {
     return author === AUTHOR.bot;
   };
 
+  //ошибка зависимостей
   useEffect(() => {
     dispatch(getMessagesByChatIdWithFB(chatId));
   }, [chatId]);
