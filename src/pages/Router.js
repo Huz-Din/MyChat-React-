@@ -6,6 +6,9 @@ import Chats from "./Chats";
 import styles from "../index.module.css";
 import AUTHOR from "../constants";
 import Gists from "./Gists";
+import Login from "./Login";
+import Registration from "./Registration";
+import RequireAuth from "../hocs/RequireAuth";
 
 const initialChats = {
   id1: {
@@ -50,18 +53,33 @@ const Router = () => {
           <li className={styles.nav__menu_li}>
             <Link to="/gists">Gists</Link>
           </li>
+          <li className={styles.nav__menu_li}>
+            <Link to="/login">Login</Link>
+          </li>
+          <li className={styles.nav__menu_li}>
+            <Link to="/registration">Registration</Link>
+          </li>
         </ul>
       </div>
 
       <Routes>
         <Route path="/" exact element={<Home />} />
-        <Route path="/profile" element={<Profile />} />
+        {/* <Route path="*" element={<Chats chats={chats} />} /> */}
+        <Route path="/login" element={<Login />} />
+        <Route path="/registration" element={<Registration />} />
+        <Route element={<RequireAuth />}>
+          <Route path="/profile" element={<Profile />} />
+          <Route path="/gists" element={<Gists />} />
+          <Route path="/chats/:chatId" element={<Chats />} />
+          <Route path=":chatId" element={<Chats />} />
+          {/* <Route index path="/chats" element={<Chats />} />
+          <Route path=":chatId" element={<Chats />} /> */}
+        </Route>
+        <Route path="*" element={<Chats />} />
         <Route
           path="/chats/:chatId"
           element={<Chats chats={chats} addMessage={addMessage} />}
         />
-        <Route path="*" element={<Chats chats={chats} />} />
-        <Route path="/gists" element={<Gists />} />
       </Routes>
     </BrowserRouter>
   );

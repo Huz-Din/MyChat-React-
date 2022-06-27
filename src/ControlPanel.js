@@ -7,7 +7,8 @@ import Box from "@mui/material/Box";
 // import AUTHOR from "./constants";
 import { useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import addMessageWithThunk from "./store/messages/actions";
+// import addMessageWithThunk from "./store/messages/actions";
+import { addMessageWithFB } from "./midlewares/midllewares";
 // import { addMessageWithSaga } from "./store/messages/actions";
 
 const ControlPanel = () => {
@@ -27,12 +28,23 @@ const ControlPanel = () => {
     e.preventDefault();
     if (value !== "") {
       const newMessage = { text: value, author };
-      dispatch(addMessageWithThunk(chatId, newMessage));
+      dispatch(addMessageWithFB(chatId, newMessage));
       // dispatch(addMessageWithSaga(chatId, newMessage));
       setValue("");
       inputRef.current?.focus();
     }
   };
+
+  // const sendMessage = (e) => {
+  //   e.preventDefault();
+  //   if (value !== "") {
+  //     const newMessage = { text: value, author };
+  //     dispatch(addMessageWithThunk(chatId, newMessage));
+  //     // dispatch(addMessageWithSaga(chatId, newMessage));
+  //     setValue("");
+  //     inputRef.current?.focus();
+  //   }
+  // };
 
   useEffect(() => {
     inputRef.current?.focus();
