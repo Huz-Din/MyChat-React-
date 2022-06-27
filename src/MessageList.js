@@ -34,7 +34,7 @@ const MessageList = () => {
   //ошибка зависимостей
   useEffect(() => {
     dispatch(getMessagesByChatIdWithFB(chatId));
-  }, [chatId, dispatch]);
+  }, [chatId]);
 
   return (
     <div className={styles.wrapper__chatlist}>

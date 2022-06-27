@@ -54,7 +54,7 @@ const ChatList = () => {
   //ошибка зависимостей
   useEffect(() => {
     dispatch(initTrackerWithFB());
-  }, [chatId, dispatch]);
+  }, [chatId]);
 
   return (
     <div>
